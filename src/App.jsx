@@ -1,8 +1,14 @@
+import { useState } from 'react'
 import './App.css'
 import { Instructions } from './components/Instructions'
 
 function App() { 
-  
+  const [price, setprice] = useState(100);
+
+  function descuentoClick(valorDescuento){
+    setprice(valorDescuento);
+  }
+
   return (
     <>
       <section id='instructions'>
@@ -10,8 +16,8 @@ function App() {
       </section>      
 
       <div>
-            <p data-testid="price">$100</p>
-            <button>Apply Discount</button>
+            <p data-testid="price">${price}</p>
+            <button onClick={() => descuentoClick(75)}>Apply Discount </button>
         </div>
     </>
   )
